@@ -17,7 +17,7 @@ env = Environment(loader=FileSystemLoader(str(template_path)))
 template = env.get_template('nastenka_template.html')
 
 # Vygenerování HTML
-output = template.render(data=data)
+output = template.render(**data)
 
 # Uložení výstupu
 with open(output_path, 'w', encoding='utf-8') as f:
