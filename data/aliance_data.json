@@ -1,4 +1,7 @@
 {
+  "meta": {
+    "vytvoreno": "02. 06. 2025, 14:36:30"
+  },
   "aliance": {
     "hodnost": 7,
     "zisk_expy": 3274432,
@@ -8,33 +11,8 @@
     },
     "procento_aktualni": 51.6
   },
-  "hraci": [
-    {
-      "jmeno": "Jendasking",
-      "produkce": 420015,
-      "penize": 82315,
-      "technologie": 3120,
-      "zold": 17000,
-      "xp": 184000,
-      "generalove": 2
-    }
-  ],
-  "valky": [
-    {
-      "nepritel": "Imperium Zla",
-      "skore": "+120",
-      "vyhry": 5,
-      "prohry": 1
-    }
-  ],
-  "pokroky": [
-    {
-      "nazev": "Kybernetika",
-      "pocet": 7
-    },
-    {
-      "nazev": "Stavebnictv\u00ed",
-      "pocet": 5
-    }
-  ]
+  "valky": [],
+  "hraci": [],
+  "pokroky": [],
+  "aliancni_pokroky": []
 }

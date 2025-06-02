@@ -2,32 +2,20 @@ import json
 from jinja2 import Environment, FileSystemLoader
 from pathlib import Path
 
-# Cesty
-base_dir = Path(__file__).parent
-data_path = base_dir / 'data' / 'aliance_data.json'
-template_path = base_dir / 'templates'
-output_dir = base_dir / 'docs'
-output_path = output_dir / 'nastenka.html'
+base = Path(__file__).parent
+data_path = base / "data/aliance_data.json"
+template_path = base / "templates"
+output_path = base / "docs/index.html"
 
-# ✅ Vytvořit složku output, pokud neexistuje
-output_dir.mkdir(parents=True, exist_ok=True)
+env = Environment(loader=FileSystemLoader(str(template_path)))
+template = env.get_template("nastenka_template.html")
 
-# Načtení dat
-with open(data_path, 'r', encoding='utf-8') as f:
+with open(data_path, "r", encoding="utf-8") as f:
     data = json.load(f)
 
-# Načtení šablony
-env = Environment(loader=FileSystemLoader(str(template_path)))
-template = env.get_template('nastenka_template.html')
+html = template.render(**data)
+output_path.parent.mkdir(parents=True, exist_ok=True)
+with open(output_path, "w", encoding="utf-8") as f:
+    f.write(html)
 
-# Vygenerování HTML
-output = template.render(**data)
-
-# Výstupní cesta (např. do složky docs/)
-docs_dir = base_dir / 'docs'
-docs_dir.mkdir(parents=True, exist_ok=True)
-
-with open(docs_dir / 'index.html', 'w', encoding='utf-8') as f:
-    f.write(output)
-
-print("Nástěnka byla úspěšně vygenerována.")
+print("Nástěnka vygenerována.")

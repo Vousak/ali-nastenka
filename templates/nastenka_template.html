@@ -3,7 +3,7 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <title>Ali Nástěnka</title>
+  <title>Nástěnka aliance</title>
   <style>
     body { font-family: sans-serif; font-size: 14px; }
     table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
@@ -15,53 +15,40 @@
 </head>
 <body>
 
-<h1>Hodnost aliance: {{ aliance.hodnost }}</h1>
-<p>Získané XP: {{ "{:,}".format(aliance.zisk_expy) }}</p>
-<p>Do příští hodnosti: {{ "{:,}".format(aliance.do_pristi.expy) }} ({{ aliance.do_pristi.procento }}%)</p>
-<div class="bar_wrapper">
-  <div class="bar" style="width: {{ aliance.procento_aktualni }}%"></div>
-</div>
+<h2>Nástěnka vytvořena ke dni {{ meta.vytvoreno }}</h2>
+<h3>Aktuální hodnost aliance: {{ aliance.hodnost }}</h3>
+<p>Celkový počet zkušeností v alianci: {{ "{:,}".format(aliance.zisk_expy) }}</p>
+<p>Do příští hodnosti chybí: {{ "{:,}".format(aliance.do_pristi.expy) }} ({{ aliance.do_pristi.procento }}%)</p>
+<div class="bar_wrapper"><div class="bar" style="width: {{ aliance.procento_aktualni }}%"></div></div>
 
-<h2>Hráči</h2>
+<h3>Války</h3>
+{% for v in valky %}
+<p><strong>{{ v.nepritel }}</strong> – skóre: {{ v.skore }}<br>
+Získané území: {{ "{:,}".format(v.uzemi_nase) }} / {{ "{:,}".format(v.uzemi_jejich) }}<br>
+Zkušenosti: {{ "{:,}".format(v.ziskane_expy) }}</p>
+{% endfor %}
+
+<h3>Hráči</h3>
 <table>
-  <thead>
-    <tr>
-      <th>Jméno</th><th>Produkce</th><th>Peněz</th><th>Tech</th><th>Žold</th><th>XP</th><th>Gen</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for hrac in hraci %}
-    <tr>
-      <td>{{ hrac.jmeno }}</td>
-      <td>{{ "{:,}".format(hrac.produkce) }}</td>
-      <td>{{ "{:,}".format(hrac.penize) }}</td>
-      <td>{{ "{:,}".format(hrac.technologie) }}</td>
-      <td>{{ "{:,}".format(hrac.zold) }}</td>
-      <td>{{ "{:,}".format(hrac.xp) }}</td>
-      <td>{{ "{:,}".format(hrac.generalove) }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
+<thead>
+<tr><th>Jméno</th><th>Produkce</th><th>Peněz</th><th>Technologie</th><th>XP</th><th>Generálové</th></tr>
+</thead>
+<tbody>
+{% for h in hraci %}
+<tr>
+<td>{{ h.jmeno }}</td>
+<td>{{ "{:,}".format(h.produkce) }}</td>
+<td>{{ "{:,}".format(h.penize) }}</td>
+<td>{{ "{:,}".format(h.technologie) }}</td>
+<td>{{ "{:,}".format(h.xp) }}</td>
+<td>{{ h.generalove }}</td>
+</tr>
+{% endfor %}
+</tbody>
 </table>
 
-<h2>Války</h2>
-<ul>
-  {% for valka in valky %}
-  <li>{{ valka.nepritel }} – skóre: {{ valka.skore }}, výher: {{ valka.vyhry }}, proher: {{ valka.prohry }}</li>
-  {% endfor %}
-</ul>
-
-<h2>Pokroky</h2>
-<table>
-  <thead>
-    <tr><th>Název</th><th>Počet hráčů</th></tr>
-  </thead>
-  <tbody>
-    {% for pokrok in pokroky %}
-    <tr><td>{{ pokrok.nazev }}</td><td>{{ pokrok.pocet }}</td></tr>
-    {% endfor %}
-  </tbody>
-</table>
+<h3>Alianční pokroky</h3>
+<ul>{% for p in aliancni_pokroky %}<li>{{ p }}</li>{% endfor %}</ul>
 
 </body>
 </html>
