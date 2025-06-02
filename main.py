@@ -6,7 +6,11 @@ from pathlib import Path
 base_dir = Path(__file__).parent
 data_path = base_dir / 'data' / 'aliance_data.json'
 template_path = base_dir / 'templates'
-output_path = base_dir / 'output' / 'nastenka.html'
+output_dir = base_dir / 'output'
+output_path = output_dir / 'nastenka.html'
+
+# ✅ Vytvořit složku output, pokud neexistuje
+output_dir.mkdir(parents=True, exist_ok=True)
 
 # Načtení dat
 with open(data_path, 'r', encoding='utf-8') as f:
