@@ -6,7 +6,7 @@ from pathlib import Path
 base_dir = Path(__file__).parent
 data_path = base_dir / 'data' / 'aliance_data.json'
 template_path = base_dir / 'templates'
-output_dir = base_dir / 'output'
+output_dir = base_dir / 'docs'
 output_path = output_dir / 'nastenka.html'
 
 # ✅ Vytvořit složku output, pokud neexistuje
@@ -25,6 +25,6 @@ output = template.render(**data)
 
 # Uložení výstupu
 with open(output_path, 'w', encoding='utf-8') as f:
-    f.write(output)
+    f.write(docs)
 
 print("Nástěnka byla úspěšně vygenerována.")
