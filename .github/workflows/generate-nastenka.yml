@@ -1,0 +1,33 @@
+name: Generate Nastenka
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: pip install jinja2
+
+    - name: Run generator
+      run: python main.py
+
+    - name: Commit and push output
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add output/nastenka.html
+        git commit -m "Auto-update nastenka" || echo "No changes"
+        git push
