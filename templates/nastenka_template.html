@@ -1,0 +1,25 @@
+<section class="aliance_level">
+  <h1>Aktuální hodnost aliance: {{ aliance.hodnost }}</h1>
+  <p>Celkový počet zkušeností v alianci: {{ aliance.zisk_expy | format(',') }}</p>
+  <div class="progress">
+    <div class="bar_wrapper" style="width: {{ aliance.procento_aktualni }}%;">
+      <div class="bar"></div>
+    </div>
+  </div>
+  <p>Do příští hodnosti chybí: {{ aliance.do_pristi.expy | format(',') }} ({{ aliance.do_pristi.procento }}%)</p>
+</section>
+
+<table>
+  <thead>
+    <tr><th>Hráč</th><th>Produkce</th><th>Peněz</th></tr>
+  </thead>
+  <tbody>
+    {% for hrac in hraci %}
+    <tr>
+      <td>{{ hrac.jmeno }}</td>
+      <td>{{ hrac.produkce | format(',') }} $</td>
+      <td>{{ hrac.penize | format(',') }} $</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

@@ -1,0 +1,28 @@
+{
+  "aliance": {
+    "hodnost": 7,
+    "zisk_expy": 3274432,
+    "do_pristi": {
+      "expy": 725568,
+      "procento": 48.4
+    },
+    "procento_aktualni": 51.6
+  },
+  "hraci": [
+    {
+      "jmeno": "Jendasking",
+      "produkce": 420015,
+      "penize": 82315
+    },
+    {
+      "jmeno": "Ali Abmar",
+      "produkce": 362896,
+      "penize": 107311
+    },
+    {
+      "jmeno": "dabodupo",
+      "produkce": 367900,
+      "penize": 20610
+    }
+  ]
+}
