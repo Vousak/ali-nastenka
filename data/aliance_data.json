@@ -12,17 +12,29 @@
     {
       "jmeno": "Jendasking",
       "produkce": 420015,
-      "penize": 82315
+      "penize": 82315,
+      "technologie": 3120,
+      "zold": 17000,
+      "xp": 184000,
+      "generalove": 2
+    }
+  ],
+  "valky": [
+    {
+      "nepritel": "Imperium Zla",
+      "skore": "+120",
+      "vyhry": 5,
+      "prohry": 1
+    }
+  ],
+  "pokroky": [
+    {
+      "nazev": "Kybernetika",
+      "pocet": 7
     },
     {
-      "jmeno": "Ali Abmar",
-      "produkce": 362896,
-      "penize": 107311
-    },
-    {
-      "jmeno": "dabodupo",
-      "produkce": 367900,
-      "penize": 20610
+      "nazev": "Stavebnictv\u00ed",
+      "pocet": 5
     }
   ]
 }
