@@ -1,6 +1,6 @@
 {
   "meta": {
-    "vytvoreno": "02. 06. 2025, 14:36:30"
+    "vytvoreno": "02. 06. 2025, 14:41:30"
   },
   "aliance": {
     "hodnost": 7,
@@ -11,8 +11,20 @@
     },
     "procento_aktualni": 51.6
   },
-  "valky": [],
+  "valky": [
+    {
+      "nepritel": "NGTY",
+      "skore": "20:170",
+      "uzemi_nase": 12087,
+      "uzemi_jejich": 413861,
+      "ziskane_expy": 695534
+    }
+  ],
   "hraci": [],
   "pokroky": [],
-  "aliancni_pokroky": []
+  "aliancni_pokroky": [
+    "Guerillové války (10)",
+    "Offshore banka (10)",
+    "Dynamické pancéřování tanku (8)"
+  ]
 }
