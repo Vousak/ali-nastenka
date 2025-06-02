@@ -23,8 +23,11 @@ template = env.get_template('nastenka_template.html')
 # Vygenerování HTML
 output = template.render(**data)
 
-# Uložení výstupu
-with open(output_path, 'w', encoding='utf-8') as f:
-    f.write(docs)
+# Výstupní cesta (např. do složky docs/)
+docs_dir = base_dir / 'docs'
+docs_dir.mkdir(parents=True, exist_ok=True)
+
+with open(docs_dir / 'index.html', 'w', encoding='utf-8') as f:
+    f.write(output)
 
 print("Nástěnka byla úspěšně vygenerována.")
